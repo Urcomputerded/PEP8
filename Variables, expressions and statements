@@ -1,0 +1,15 @@
+Variables, expressions and statements
+
+**2.2:**
+# The code below almost works
+#20096506, Elliott Missen
+name = input("Enter your name")
+print("Hello", name)
+
+**2.3**
+#20096506, Elliott Missen
+hours = input("Enter hours: ")
+rate = input("Enter Rate: ")
+pay = float(hours) * float(rate)
+print("Pay:",pay)
+

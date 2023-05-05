@@ -1,0 +1,24 @@
+
+name = input("Enter file:")
+if len(name) < 1 : name = "mbox-short.txt"
+handle = open(name)
+
+hourcount = dict()                                     
+hour_list = []                                           
+
+
+for line in handle:
+    words = line.split()
+    if len(words) > 2 and words[0] == 'From':   
+        hour = words[5].split(':')               
+        hourcount[hour[0]] = hourcount.get(hour[0], 0) + 1  
+    else:
+        continue
+
+
+for hour,count in hourcount.items():
+    hour_list.append((hour,count))
+
+hour_list.sort()
+for hour,count in hour_list:
+    print(hour,count)

@@ -1,0 +1,24 @@
+name = input("Enter file:")
+if len(name) < 1:
+    name = "mbox-short.txt"
+handle = open(name)
+
+biggestauthor = dict()
+
+for line in handle:
+    line.rstrip()
+    if not line.startswith("From "): continue
+    words = line.split()
+    biggestauthor[words[1]] = biggestauthor.get(words[1],0)+1
+
+best = None
+best_author = None
+
+for key in biggestauthor:
+    if best is None: best = biggestauthor[key]
+
+    if best < biggestauthor[key]:
+        best = biggestauthor[key]
+        best_author = key
+
+print(best_author, best)
